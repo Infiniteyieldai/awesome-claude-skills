@@ -33,6 +33,11 @@ const NON_SKILL_DIRS = new Set([
   '.git',
 ]);
 
+// Sibling repos to also install (relative to the parent of REPO_ROOT)
+const SIBLING_SKILLS = [
+  { repo: 'skill-builder', name: 'skill-builder' },
+];
+
 // Skill categories for --only filtering
 const CATEGORIES = {
   dev:      ['generating-openapi-specs', 'writing-e2e-tests', 'reviewing-pull-requests',
@@ -134,6 +139,15 @@ async function collectSkills() {
       if (await hasSkillMd(subPath)) {
         skills.push({ src: subPath, name: sub, origin: `${entry}/${sub}` });
       }
+    }
+  }
+
+  // Always include sibling repo skills (e.g. skill-builder)
+  const parentDir = resolve(REPO_ROOT, '..');
+  for (const sibling of SIBLING_SKILLS) {
+    const sibDir = join(parentDir, sibling.repo);
+    if (await isDir(sibDir) && await hasSkillMd(sibDir)) {
+      skills.push({ src: sibDir, name: sibling.name, origin: `../${sibling.repo}` });
     }
   }
 
