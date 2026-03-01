@@ -36,6 +36,7 @@ const NON_SKILL_DIRS = new Set([
 // Sibling repos to also install (relative to the parent of REPO_ROOT)
 const SIBLING_SKILLS = [
   { repo: 'skill-builder', name: 'skill-builder' },
+  { repo: 'ruflo', skillsSubDir: 'plugin/skills' },  // Ruflo: 37 agent orchestration skills
 ];
 
 // Skill categories for --only filtering
@@ -142,12 +143,29 @@ async function collectSkills() {
     }
   }
 
-  // Always include sibling repo skills (e.g. skill-builder)
+  // Always include sibling repo skills (e.g. skill-builder, ruflo)
   const parentDir = resolve(REPO_ROOT, '..');
   for (const sibling of SIBLING_SKILLS) {
-    const sibDir = join(parentDir, sibling.repo);
-    if (await isDir(sibDir) && await hasSkillMd(sibDir)) {
-      skills.push({ src: sibDir, name: sibling.name, origin: `../${sibling.repo}` });
+    const repoDir = join(parentDir, sibling.repo);
+    if (!await isDir(repoDir)) continue;
+
+    if (sibling.skillsSubDir) {
+      // Repo has skills in a subdirectory (e.g. ruflo/plugin/skills/)
+      const skillsRoot = join(repoDir, sibling.skillsSubDir);
+      if (!await isDir(skillsRoot)) continue;
+      const subSkills = await readdir(skillsRoot);
+      for (const s of subSkills.sort()) {
+        const sDir = join(skillsRoot, s);
+        if (!await isDir(sDir)) continue;
+        if (await hasSkillMd(sDir)) {
+          skills.push({ src: sDir, name: s, origin: `../${sibling.repo}/${sibling.skillsSubDir}/${s}` });
+        }
+      }
+    } else {
+      // Repo root is the skill (e.g. skill-builder)
+      if (await hasSkillMd(repoDir)) {
+        skills.push({ src: repoDir, name: sibling.name, origin: `../${sibling.repo}` });
+      }
     }
   }
 
