@@ -1,0 +1,151 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "awesome-claude-skills",
+  "version": "1.0.0",
+  "description": "Curated Claude Skills for enhancing productivity",
+  "owner": {
+    "name": "Infiniteyieldai"
+  },
+  "plugins": [
+    {
+      "name": "artifacts-builder",
+      "description": "Artifacts Builder",
+      "source": "./artifacts-builder"
+    },
+    {
+      "name": "brand-guidelines",
+      "description": "Anthropic Brand Styling",
+      "source": "./brand-guidelines"
+    },
+    {
+      "name": "canvas-design",
+      "description": "Canvas design skill",
+      "source": "./canvas-design"
+    },
+    {
+      "name": "changelog-generator",
+      "description": "Changelog Generator",
+      "source": "./changelog-generator"
+    },
+    {
+      "name": "competitive-ads-extractor",
+      "description": "Competitive Ads Extractor",
+      "source": "./competitive-ads-extractor"
+    },
+    {
+      "name": "connect",
+      "description": "Connect skill",
+      "source": "./connect"
+    },
+    {
+      "name": "connect-apps",
+      "description": "Connect Apps",
+      "source": "./connect-apps"
+    },
+    {
+      "name": "content-research-writer",
+      "description": "Content Research Writer",
+      "source": "./content-research-writer"
+    },
+    {
+      "name": "developer-growth-analysis",
+      "description": "Developer Growth Analysis",
+      "source": "./developer-growth-analysis"
+    },
+    {
+      "name": "domain-name-brainstormer",
+      "description": "Domain Name Brainstormer",
+      "source": "./domain-name-brainstormer"
+    },
+    {
+      "name": "file-organizer",
+      "description": "File Organizer",
+      "source": "./file-organizer"
+    },
+    {
+      "name": "image-enhancer",
+      "description": "Image Enhancer",
+      "source": "./image-enhancer"
+    },
+    {
+      "name": "internal-comms",
+      "description": "Internal communications skill",
+      "source": "./internal-comms"
+    },
+    {
+      "name": "invoice-organizer",
+      "description": "Invoice Organizer",
+      "source": "./invoice-organizer"
+    },
+    {
+      "name": "langsmith-fetch",
+      "description": "LangSmith Fetch - Agent Debugging Skill",
+      "source": "./langsmith-fetch"
+    },
+    {
+      "name": "lead-research-assistant",
+      "description": "Lead Research Assistant",
+      "source": "./lead-research-assistant"
+    },
+    {
+      "name": "mcp-builder",
+      "description": "MCP Server Development Guide",
+      "source": "./mcp-builder"
+    },
+    {
+      "name": "meeting-insights-analyzer",
+      "description": "Meeting Insights Analyzer",
+      "source": "./meeting-insights-analyzer"
+    },
+    {
+      "name": "raffle-winner-picker",
+      "description": "Raffle Winner Picker",
+      "source": "./raffle-winner-picker"
+    },
+    {
+      "name": "skill-creator",
+      "description": "Skill Creator",
+      "source": "./skill-creator"
+    },
+    {
+      "name": "skill-share",
+      "description": "Skill Share",
+      "source": "./skill-share"
+    },
+    {
+      "name": "slack-gif-creator",
+      "description": "Slack GIF Creator",
+      "source": "./slack-gif-creator"
+    },
+    {
+      "name": "tailored-resume-generator",
+      "description": "Tailored Resume Generator",
+      "source": "./tailored-resume-generator"
+    },
+    {
+      "name": "template-skill",
+      "description": "Template skill for creating new skills",
+      "source": "./template-skill"
+    },
+    {
+      "name": "theme-factory",
+      "description": "Theme Factory Skill",
+      "source": "./theme-factory"
+    },
+    {
+      "name": "twitter-algorithm-optimizer",
+      "description": "Twitter Algorithm Optimizer",
+      "source": "./twitter-algorithm-optimizer"
+    },
+    {
+      "name": "video-downloader",
+      "description": "YouTube Video Downloader",
+      "source": "./video-downloader"
+    },
+    {
+      "name": "webapp-testing",
+      "description": "Web Application Testing",
+      "source": "./webapp-testing"
+    }
+  ]
+}
